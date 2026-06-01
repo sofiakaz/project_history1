@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чжу Ксения Николаевна</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { background: #2a2a2a; }</style>
+</head>
+<body class="fade-in">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="index.html">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<section class="artist-hero">
+    <div class="artist-hero-text">
+        <h1>ЧЖУ<br>КСЕНИЯ<br>НИКОЛАЕВНА</h1>
+    </div>
+    <div class="artist-hero-photo">
+        <img src="img/Чжу.png" alt="Ксения Чжу">
+    </div>
+</section>
+
+<div class="artist-gallery">
+    <a href="chzhu/bez.html" class="gallery-item">
+        <span class="gallery-num">01</span>
+        <img src="img/Без темы.jpeg" alt="">
+    </a>
+    <a href="chzhu/sestri.html" class="gallery-item">
+        <span class="gallery-num">02</span>
+        <img src="img/Сёстры.jpeg" alt="">
+    </a>
+    <a href="chzhu/atlants.html" class="gallery-item">
+        <span class="gallery-num">03</span>
+        <img src="img/Атланты.png" alt="">
+    </a>
+</div>
+
+<div class="artist-body">
+    <section class="artist-section">
+        <p>
+            Ксения Чжу — российская художница, яркий представитель современной петербургской академической школы. Родилась в 1985 году в Кемерово. Её путь в искусстве начался с классической базы в Кемеровском художественном училище. Решающим этапом стало обучение в Санкт-Петербургской академии художеств имени Ильи Репина, которую она окончила в 2012 году в мастерской монументальной живописи под руководством профессора В.В. Соколова. Ксения представляет тип «художника-гражданина». Её творчество неразрывно связано с современными историческими событиями и гуманистическими ценностями. Вместе с супругом, китайским художником Чжу Лэем, она формирует уникальный творческий тандем, объединяющий русскую академическую традицию и глубокое внимание к человеческой судьбе в переломные моменты истории.
+        </p>
+        <p>
+            Ксения Чжу — приверженец реалистической школы с сильным академическим фундаментом.
+        </p>
+        <p>
+            Основной медиум — масляная живопись на холсте. Она мастерски владеет многослойным письмом, что позволяет добиваться глубины цвета и реалистичности фактур (кожи, ткани, бетона). Стиль можно охарактеризовать как «суровый реализм» в современной интерпретации. В работах нет излишней декоративности; акцент делается на психологизме и монументальности композиции.
+        </p>
+        <p>
+            Часто использует крупные планы и фронтальное построение фигур, что придаёт её героям внутреннюю силу и неподвижность, характерную для иконописи или античной скульптуры. В работах на военную и социальную тематику преобладают сдержанные, приземлённые тона — охра, серый, глубокий коричневый.
+        </p>
+        <p style="opacity:.5; font-size:20px;">[Интервью: Кивилева Злата]</p>
+    </section>
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

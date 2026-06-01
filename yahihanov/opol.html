@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рустам Яхиханов – «Ополченцы»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../yahihanov.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[02]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Ополченцы.jpg" alt="Ополченцы">
+    </div>
+
+    <div class="painting-caption">«Ополченцы», 2019</div>
+
+    <div class="painting-text">
+        <p>
+            На картине изображены вайнахи (чеченцы и ингуши), вставшие на защиту Родины в рядах народного ополчения в начале Великой Отечественной войны. Лица героев сосредоточены и серьёзны, их позы выражают готовность к бою. С помощью этого произведения автор подчёркивает вклад чеченского народа в защиту Советского народа, противопоставляя их героизм последующей несправедливости депортации.
+        </p>
+        <p>
+            За 4 года до графического варианта был написан цветной. Графический вариант был последней шестнадцатой картиной, написанной специально для выставки в Москве. В варианте картины 2015 года флаг выделен цветом, а в графическом больше выделена фактура.
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById("artistsBtn");
+const menu = document.getElementById("artistsMenu");
+btn.addEventListener("click", () => menu.classList.toggle("open"));
+document.addEventListener("click", e => {
+    if (!menu.contains(e.target)) menu.classList.remove("open");
+});
+</script>
+</body>
+</html>

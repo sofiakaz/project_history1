@@ -1,0 +1,447 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #222222;
+    --bg-artist: #2a2a2a;
+    --surface: #111111;
+    --text: #ffffff;
+    --text-muted: rgba(255,255,255,0.55);
+    --border: rgba(255,255,255,0.18);
+    --font: 'Oswald', sans-serif;
+    --header-h: 80px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+}
+
+body.fade-in {
+    opacity: 0;
+    animation: pageFade 0.6s forwards;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+a { color: inherit; text-decoration: none; }
+
+header {
+    width: 100%;
+    height: var(--header-h);
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: var(--bg);
+}
+
+header.with-back {
+    background: var(--bg-artist);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.back-btn {
+    font-size: 26px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity .2s;
+}
+.back-btn:hover { opacity: 1; }
+
+.logo {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: .5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+nav > a {
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: .85;
+    transition: opacity .2s;
+}
+nav > a:hover { opacity: 1; }
+
+.artists-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--header-h);
+}
+
+.artists-btn {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 18px;
+    letter-spacing: 1px;
+    height: 100%;
+    padding: 0 28px;
+    cursor: pointer;
+    transition: background .2s;
+    white-space: nowrap;
+}
+
+.artists-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .25s, transform .25s, visibility .25s;
+    z-index: 1001;
+}
+
+.artists-menu.open .artists-btn     { background: var(--surface); }
+.artists-menu.open .artists-popup   {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.artists-popup a {
+    font-size: 15px;
+    padding: 18px 36px;
+    position: relative;
+    transition: background .15s, padding-left .15s;
+}
+.artists-popup a::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: 8px;
+    width: calc(100% - 40px);
+    height: 1px;
+    background: var(--border);
+}
+.artists-popup a:last-child::after { display: none; }
+.artists-popup a:hover {
+    background: rgba(255,255,255,.05);
+    padding-left: 44px;
+}
+
+/* ===========================
+   ГЛАВНАЯ — HERO
+=========================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("img/выставкаглавная.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 150px;
+    max-width: 900px;
+}
+
+.hero-content h1 {
+    font-size: 68px;
+    line-height: 1.18;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+}
+
+.hero-content p {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 48px;
+    opacity: .9;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 16px 36px;
+    border: 2px solid var(--text);
+    font-family: var(--font);
+    font-size: 20px;
+    transition: background .2s, color .2s;
+}
+.btn-outline:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+/* ===========================
+   СТРАНИЦА ХУДОЖНИКА — HERO
+=========================== */
+.artist-hero {
+    padding-top: calc(var(--header-h) + 80px);
+    padding-bottom: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
+    background: var(--bg-artist);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 100px;
+    min-height: calc(100vh - var(--header-h));
+}
+
+.artist-hero-text h1 {
+    font-size: 96px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.artist-hero-photo {
+    flex-shrink: 0;
+    padding: 16px;
+    background: white;
+}
+.artist-hero-photo img {
+    width: 420px;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===========================
+   СТРАНИЦА ХУДОЖНИКА — ГАЛЕРЕЯ
+=========================== */
+.artist-gallery {
+    display: flex;
+    gap: 16px;
+    padding: 32px 120px;
+    background: var(--bg-artist);
+    overflow-x: auto;
+    justify-content: center;
+    scrollbar-width: none;
+}
+
+.artist-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    cursor: pointer;
+    transition: opacity .2s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.gallery-item:hover { opacity: .8; }
+
+.gallery-item img {
+    height: 220px;
+    width: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-num {
+    font-size: 11px;
+    opacity: .55;
+}
+
+/* ===========================
+   СТРАНИЦА ХУДОЖНИКА — ТЕКСТЫ
+=========================== */
+.artist-body {
+    background: var(--bg);
+    padding: 80px 120px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-section {
+    width: 100%;
+    max-width: 860px;
+    margin-bottom: 80px;
+}
+
+.artist-section h2 {
+    font-size: 52px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    font-weight: 700;
+}
+
+.artist-section p {
+    font-size: 24px;
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 28px;
+    color: rgba(255,255,255,.9);
+}
+
+/* ===========================
+   СТРАНИЦА ХУДОЖНИКА — СЕТКА РАБОТ
+=========================== */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.work-card {
+    display: block;
+    transition: transform .25s, opacity .25s;
+}
+.work-card:hover {
+    transform: translateY(-4px);
+    opacity: .88;
+}
+.work-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+}
+.work-card-title {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* ===========================
+   СТРАНИЦА КАРТИНЫ
+=========================== */
+.painting-page {
+    background: var(--bg-artist);
+    min-height: 100vh;
+}
+
+.painting-container {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: calc(var(--header-h) + 60px);
+    padding-bottom: 120px;
+}
+
+/* Крупный номер [01] */
+.painting-number {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 32px;
+}
+
+/* Белая рамка вокруг картины */
+.painting-frame {
+    padding: 12px;
+    background: white;
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.painting-frame img {
+    width: 100%;
+    display: block;
+}
+
+/* Подпись под картиной */
+.painting-caption {
+    font-size: 15px;
+    font-weight: 300;
+    opacity: .6;
+    margin-bottom: 80px;
+}
+
+/* Текст описания */
+.painting-text {
+    font-size: 22px;
+    line-height: 1.85;
+    font-weight: 300;
+}
+
+.painting-text h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 52px;
+    margin-bottom: 16px;
+    opacity: .85;
+    border-left: 3px solid rgba(255,255,255,.3);
+    padding-left: 20px;
+}
+
+.painting-text p {
+    margin-bottom: 20px;
+}
+
+/* Старые классы — скрыты */
+.painting-title { display: none; }
+.painting-meta  { display: none; }
+.painting-img   { display: none; }
+
+/* ===========================
+   МЕДИА
+=========================== */
+@media (max-width: 1200px) {
+    .hero-content { margin-left: 60px; }
+    .artist-hero, .artist-body { padding-left: 60px; padding-right: 60px; }
+    .artist-gallery { padding: 0 24px; }
+}
+
+@media (max-width: 900px) {
+    header { padding: 0 24px; }
+    nav { gap: 24px; }
+    .hero-content { margin-left: 24px; }
+    .hero-content h1 { font-size: 40px; }
+    .hero-content p { font-size: 20px; }
+    .artist-hero { flex-direction: column; padding: 120px 24px 60px; min-height: auto; }
+    .artist-hero-text h1 { font-size: 48px; }
+    .artist-hero-photo img { width: 100%; height: auto; }
+    .artist-body { padding: 40px 24px 80px; }
+    .artist-gallery { padding: 0 24px; }
+    .painting-container { width: 100%; padding: 120px 24px 80px; }
+    .painting-title { font-size: 36px; }
+    .works-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .works-grid { grid-template-columns: 1fr; }
+    .artists-btn { padding: 0 16px; font-size: 16px; }
+    nav > a { font-size: 15px; }
+}

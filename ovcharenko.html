@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Овчаренко Илья Валерьевич</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { background: #2a2a2a; }</style>
+</head>
+<body class="fade-in">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="index.html">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<section class="artist-hero">
+    <div class="artist-hero-text">
+        <h1>ОВЧАРЕНКО<br>ИЛЬЯ<br>ВАЛЕРЬЕВИЧ</h1>
+    </div>
+    <div class="artist-hero-photo">
+        <img src="img/Овчаренко.jpg" alt="Илья Овчаренко">
+    </div>
+</section>
+
+<div class="artist-gallery">
+    <a href="ovcharenko/otec.html" class="gallery-item">
+        <span class="gallery-num">01</span>
+        <img src="img/Отец и сын.jpg" alt="">
+    </a>
+    <a href="ovcharenko/leto.html" class="gallery-item">
+        <span class="gallery-num">02</span>
+        <img src="img/Лето.jpg" alt="">
+    </a>
+    <a href="ovcharenko/den.html" class="gallery-item">
+        <span class="gallery-num">03</span>
+        <img src="img/День победы.jpg" alt="">
+    </a>
+    <a href="ovcharenko/vesna.html" class="gallery-item">
+        <span class="gallery-num">04</span>
+        <img src="img/Весна.jpg" alt="">
+    </a>
+</div>
+
+<div class="artist-body">
+    <section class="artist-section">
+        <p>
+            Илья Валерьевич Овчаренко — живописец и педагог. Родился в 1975 году в Саратове, в семье художников — Валерия Михайловича Овчаренко и Марины Юрьевны Милавины. С юных лет мальчик пошёл по стопам родителей. В 1986–1990 годах учился в Саратовской художественной школе № 1. В 1991–1998 годах обучался в Саратовском художественном училище им. А.П. Боголюбова.
+        </p>
+        <p>
+            Спустя несколько лет, по окончании службы в армии, Илья продолжил обучение художественному мастерству в Санкт-Петербургском государственном академическом институте живописи, скульптуры и архитектуры им. И.Е. Репина, где в 2007 году окончил отделение живописи. С 2008 года он делится своим опытом и знаниями, преподавая в родном СПбГАИЖСА, а с 2011 года является членом Союза художников Санкт-Петербурга.
+        </p>
+        <p>
+            Работы художника трогают не только сюжетом и неподражаемой техникой, но и человечностью. Каждое полотно наполняется теплотой семейных уз или горем утраты, заливистым смехом или скрипом покинутого дома. Наибольшее признание получила картина «Семья священника о. Даниила Василевского». Портретное сходство и чуткость к мимике героев поражают зрителя.
+        </p>
+        <p style="opacity:.5; font-size:20px;">[Интервью: Надеждина Елизавета]</p>
+    </section>
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

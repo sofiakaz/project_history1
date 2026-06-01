@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Геннадий Исаев – «Зубы дракона»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../isaev.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[05]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Линия вагнера.jpeg" alt="«Линия Вагнера»">
+    </div>
+
+    <div class="painting-caption">«Зубы дракона», 2023</div>
+
+    <div class="painting-text">
+        <p>
+          Название «Зубы дракона» выбрано не только как военный термин
+          для укреплений, но и как метафора трагедии, где человеческие жизни перемалываются механизмом войны. Картина появилась после того, как Геннадий Анатольевич прочитал историю одной женщины с Донбасса.
+          В этой истории его зацепило сосуществование повседневности и смерти
+          — Парадокс происходящего раскрыт через контраст: мирные жители занимаются такими будничными делами, как работа в огороде, в то время как над их головами летят современные ракеты, стоящие несколько миллионов долларов. Цветовая палитра, в отличие
+          от приглушенной красно-черной цветовой гаммы других картин, кажется яркой и насыщенной, что подчеркивает современность событий, о которых она говорит. Женщина в футболке с надписью «СССР», стоящая спиной
+          к западу (слева), символизирует постсоветское наследие и нежелание смотреть в сторону конфликта. 
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById("artistsBtn");
+const menu = document.getElementById("artistsMenu");
+btn.addEventListener("click", () => menu.classList.toggle("open"));
+document.addEventListener("click", e => {
+    if (!menu.contains(e.target)) menu.classList.remove("open");
+});
+</script>
+</body>
+</html>

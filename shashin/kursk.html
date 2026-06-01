@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Алексей Шашин – «Курск»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../shashin.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[01]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Курск.png" alt="Курск">
+    </div>
+
+    <div class="painting-caption">«Курск», 2024</div>
+
+    <div class="painting-text">
+        <p>
+            Картина «Курск» — огромное полотно, иллюстрирующее трагедию на одноимённой подлодке в августе 2000 года. В центр картины ставится не только сама катастрофа, но проявленный героизм и мужество подводников перед лицом смерти. Вся работа выполнена в чёрно-красной гамме, выдерживая эмоциональный тон глубиной и художественным исполнением.
+        </p>
+        <p>
+            Моряки изображены в одном кругу, обнявшись, слились в одно целое. Их лица не выражают страха, только стойкое принятие суровой судьбы. Прибывающая вода, тусклый красный свет ламп создают напряжение и давят на зрителя. Тяжёлые чувства безысходности сочетаются с несгибаемой волей тех, кто до последнего оставался на посту. Всё это Алексей Шашин мастерски передал в своё полотно маслом.
+        </p>
+        <p>
+            В декабре 2025 года картину «Курск» передали в дар Военно-морскому институту. По этому случаю прошла торжественная церемония, на которой присутствовали главнокомандующий ВМФ с 2016 по 2019 год, вице-президент АО «Объединённая судостроительная корпорация» по военному кораблестроению Владимир Королёв, заместитель ректора Санкт-Петербургской академии художеств Андрей Скляренко, сам Алексей Шашин, представители Главного командования Военно-Морского Флота, курсанты и офицеры института.
+        </p>
+        <p>
+            Картина «Курск» заняла достойное место в Военно-морском институте и будет важным напоминанием для курсантов о той высокой ответственности, которая лежит на каждом, кто выбрал путь служения Отечеству под водой.
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

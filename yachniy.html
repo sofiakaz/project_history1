@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ячный Евгений Алексеевич</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { background: #2a2a2a; }</style>
+</head>
+<body class="fade-in">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="index.html">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<section class="artist-hero">
+    <div class="artist-hero-text">
+        <h1>ЯЧНЫЙ<br>ЕВГЕНИЙ<br>АЛЕКСЕЕВИЧ</h1>
+    </div>
+    <div class="artist-hero-photo">
+        <img src="img/Ячный.png" alt="Евгений Ячный">
+    </div>
+</section>
+
+<div class="artist-gallery">
+    <a href="yachniy/razgovor.html" class="gallery-item">
+        <span class="gallery-num">01</span>
+        <img src="img/Разговор.jpg" alt="">
+    </a>
+    <a href="yachniy/krasniy.html" class="gallery-item">
+        <span class="gallery-num">02</span>
+        <img src="img/красный сон.jpg" alt="">
+    </a>
+    <a href="yachniy/opolchenci.html" class="gallery-item">
+        <span class="gallery-num">03</span>
+        <img src="img/Ополченцы2.jpg" alt="">
+    </a>
+    <a href="yachniy/perviysneg.html" class="gallery-item">
+        <span class="gallery-num">04</span>
+        <img src="img/Первый снег.jpg" alt="">
+    </a>
+</div>
+
+<div class="artist-body">
+    <section class="artist-section">
+        <p>
+            Евгений Алексеевич Ячный (род. 21 апреля 1988, Ленинград) — российский художник-живописец, представитель современной академической школы. В 2010 году с отличием окончил Санкт-Петербургское художественное училище им. Н.К. Рериха (мастерская Б.В. Лесова), в том же году был удостоен премии Правительства Санкт-Петербурга «Юные дарования». Продолжил обучение в Санкт-Петербургском государственном академическом институте живописи, скульптуры и архитектуры им. И.Е. Репина, где занимался в мастерской монументальной живописи под руководством С.Н. Репина. В 2017 году окончил институт с отличием; дипломная работа «Ополченцы» получила высокую оценку государственной комиссии.
+        </p>
+        <p>
+            С 2017 года — стажёр творческой мастерской монументальной живописи под руководством В.А. Мыльниковой, преподаватель рисунка СПбГУ. Член Союза художников России (с 2018 года). Лауреат и участник многочисленных выставок в России и за рубежом, обладатель ряда профессиональных наград, включая стипендию Президента РФ и «Репинскую премию». Работы художника находятся в частных коллекциях России, а также в Австрии, Германии, Франции, Китае, Нидерландах и Великобритании.
+        </p>
+        <p>
+            Творчество Ячного связано с развитием жанровой живописи в современном искусстве; в его работах сочетаются традиции академической школы и внимание к повседневной жизни человека. В творчестве Евгения Алексеевича постоянно прослеживаются несколько тем: семья, война, память. Художник отмечает, что «не хочется даже привязываться к конкретному месту, времени или портрету» — для него важно говорить о «вечных вещах через призму людей и образов».
+        </p>
+        <p>
+            Касаясь темы войны, Евгений Алексеевич задаётся вопросом: как в XXI веке смотреть на те события? Именно желание выразить благодарность людям, прошедшим войну, сохранить память о подвигах выражается в его произведениях посредством глубоких и масштабных образов.
+        </p>
+        <p style="opacity:.5; font-size:20px;">[Интервью: Бахеткин Артём]</p>
+    </section>
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

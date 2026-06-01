@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александр Кривонос – «Тревога»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../krivonos.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[01]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Тревога.jpg" alt="«Тревога»">
+    </div>
+
+    <div class="painting-caption">«Тревога», 2014, холст, масло</div>
+
+    <div class="painting-text">
+        <p>
+            Композиция картины динамична: всё устремлено к движению, к бегству или к укрытию, вектор направлен по диагонали восходящей в левый верхний угол. Группа людей слева уходит вглубь, под импровизированный полог; юноша справа — в динамичном развороте, он указывает направление опасности. Эта диагональ тревоги разрезает холст, не давая взгляду остановиться. Художник намеренно сгущает фигуры в левой части — старик, дети, женщина — создавая образ семьи, которую нужно защитить и спрятать.
+        </p>
+        <p>
+            Масштабное полотно выполнено маслом в насыщенной осенней палитре. Золото, охра, ржавчина, красный — цвета горящего леса и горящей листвы работают одновременно как природный пейзаж и как метафора войны. Холодный серо-голубой цвет телогрейки юноши справа — единственная «мирная» нота, выделяющая его из общей напряжённости.
+        </p>
+        <p>
+            Письмо пастозное, энергичное: мазок широкий, местами почти экспрессионистский. Берёзы — белые вертикали — структурируют хаос, но и сами кажутся хрупкими среди этого движения. Белый голубь в правой части — важнейший символический акцент: мир, который улетает или который ещё возможен.
+        </p>
+        <p>
+            Здесь война — настоящий момент: партизанский лес, оружие, необходимость прятать детей. Тревога — не психологическое состояние, а физическое действие: спрятаться, залечь, предупредить. Собака, учуявшая опасность, дети под пологом, напряжённые фигуры — всё говорит о секунде перед столкновением.
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

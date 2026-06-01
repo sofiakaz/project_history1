@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Историческая выставка — Академия Художеств</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+header { background: transparent; }
+body { overflow: hidden; }
+</style>
+</head>
+<body class="fade-in">
+
+<section class="hero">
+
+    <header>
+        <div class="logo">Академия Художеств</div>
+        <nav>
+            <a href="#">О ВЫСТАВКЕ</a>
+            <div class="artists-menu" id="artistsMenu">
+                <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+                <div class="artists-popup">
+                    <a href="isaev.html">Исаев Г.</a>
+                    <a href="krivonos.html">Кривонос А.</a>
+                    <a href="novoselov.html">Новоселов А.</a>
+                    <a href="ovcharenko.html">Овчаренко И.</a>
+                    <a href="chzhu.html">Чжу К.</a>
+                    <a href="shashin.html">Шашин А.</a>
+                    <a href="yahihanov.html">Яхиханов Р.</a>
+                    <a href="yachniy.html">Ячный Е.</a>
+                </div>
+            </div>
+            <a href="#">3D ВЫСТАВКА</a>
+        </nav>
+    </header>
+
+    <div class="hero-content">
+        <h1>
+            КТО ГОВОРИТ, ЧТО НА ВОЙНЕ<br>
+            НЕ СТРАШНО, ТОТ НИЧЕГО<br>
+            НЕ ЗНАЕТ О ВОЙНЕ
+        </h1>
+        <p>
+            Виртуальная выставка современного искусства<br>
+            совместно с Академией Художеств
+        </p>
+        <a href="#" class="btn-outline">Смотреть 3D выставку</a>
+    </div>
+
+</section>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

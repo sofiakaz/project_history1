@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шашин Алексей Александрович</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { background: #2a2a2a; }</style>
+</head>
+<body class="fade-in">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="index.html">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<section class="artist-hero">
+    <div class="artist-hero-text">
+        <h1>ШАШИН<br>АЛЕКСЕЙ<br>АЛЕКСАНДРОВИЧ</h1>
+    </div>
+    <div class="artist-hero-photo">
+        <img src="img/Шашин.png" alt="Алексей Шашин">
+    </div>
+</section>
+
+<div class="artist-gallery">
+    <a href="shashin/kursk.html" class="gallery-item">
+        <span class="gallery-num">01</span>
+        <img src="img/Курск.png" alt="Курск">
+    </a>
+</div>
+
+<div class="artist-body">
+    <section class="artist-section">
+        <p>
+            Шашин Алексей Александрович — художник, выпускник Санкт-Петербургской академии художеств имени Ильи Репина с 2018 года. Его творчество характеризуется преимущественно использованием масляных красок и изображением людей.
+        </p>
+        <p>
+            Одним из его самых известных произведений является картина «Курск» — огромное полотно, иллюстрирующее трагедию на одноимённой подлодке в августе 2000 года. Данный холст является дипломной работой художника.
+        </p>
+        <p style="opacity:.5; font-size:20px;">[Интервью: ]</p>
+    </section>
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Яхиханов Рустам Хожаевич</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { background: #2a2a2a; }</style>
+</head>
+<body class="fade-in">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="index.html">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<section class="artist-hero">
+    <div class="artist-hero-text">
+        <h1>ЯХИХАНОВ<br>РУСТАМ<br>ХОЖАЕВИЧ</h1>
+    </div>
+    <div class="artist-hero-photo">
+        <img src="img/Яхиханов.png" alt="Рустам Яхиханов">
+    </div>
+</section>
+
+<div class="artist-gallery">
+    <a href="yahihanov/triptih.html" class="gallery-item">
+        <span class="gallery-num">01</span>
+        <img src="img/Триптих.png" alt="">
+    </a>
+    <a href="yahihanov/opol.html" class="gallery-item">
+        <span class="gallery-num">02</span>
+        <img src="img/Ополченцы.jpg" alt="">
+    </a>
+</div>
+
+<div class="artist-body">
+    <section class="artist-section">
+        <p>
+            Рустам Хожаевич Яхиханов — член Союза художников, заслуженный художник Чеченской Республики. Родился 20 июля 1986 года в Грозном (Чечено-Ингушская АССР). Начальное художественное образование получил в ДШИ №14. В 2005 году поступил на факультет живописи Санкт-Петербургского государственного академического института живописи, скульптуры и архитектуры имени Ильи Репина, где обучался в мастерской монументальной живописи под руководством Александра Быстрова. Его талант был отмечен многочисленными наградами за успешную творческую деятельность.
+        </p>
+        <p>
+            В настоящее время Рустам является старшим преподавателем кафедры рисунка факультета графики в Академии художеств имени И.Е. Репина, ведёт активную выставочную деятельность, участвует в проектах международного уровня, а также проводит мастер-классы и курирует художественно-образовательные программы.
+        </p>
+        <p>
+            Рустам Яхиханов работает в жанрах живописи и графики. В детстве он пережил две войны, и эти события значительно повлияли на творчество в начале его пути. Позже он начал обращаться к теме культуры, традиций и истории родного региона. Его дипломная работа «Земля моих предков» является самой большой дипломной картиной за всю историю Академии художеств (2,5×13 метров). Особое внимание в творчестве художника занимает работа с формой и пространством: даже в камерных произведениях чувствуется монументальный размах, он хорошо работает с многофигурными композициями.
+        </p>
+        <p style="opacity:.5; font-size:20px;">[Интервью: Раскоша Екатерина]</p>
+    </section>
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

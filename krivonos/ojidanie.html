@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александр Кривонос – «Ожидание»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../krivonos.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[02]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Ожидание.jpg" alt="«Ожидание»">
+    </div>
+
+    <div class="painting-caption">«Ожидание», 2015, сангина, соус</div>
+
+    <div class="painting-text">
+        <p>
+            Стоящая молодая женщина у прялки занимает смысловой центр. Она возвышается над пространством — её взгляд направлен вдаль, за горизонт. Это классический жест ожидания: тело занято трудом, но душа — где-то там, куда уходят. Справа — пожилая женщина, склонённая и погружённая в себя: другое ожидание, более тихое и горькое. На дальнем плане — согбенная фигура, почти растворяющаяся в пространстве. Три женщины — три возраста ожидания: молодость, зрелость, старость.
+        </p>
+        <p>
+            Работа выполнена в технике сангины с соусом, что играет немаловажную роль для понимания образного строя. Тёплый терракотово-охристый тон сангины создаёт единое эмоциональное поле: цвет земли, цвет хлеба, цвет человеческого тела. Он — цвет времени, остановившегося в ожидании. Контрастные чёрные акценты (одежда сидящей женщины, детали переднего плана) вносят тревожную ноту, не разрушая общей теплоты.
+        </p>
+        <p>
+            Свет рассеянный, без резких теней — характерный приём для сангины. Горизонт широкий, открытый, почти степной. Это пространство отсутствия: мужчин нет, есть только оставленный ими мир — поля, труд, женщины у прялки.
+        </p>
+        <p>
+            Военная тема здесь скрыта, растворена в быте. Нет ни оружия, ни форм — есть только пустота рядом. Прялка как символ непрекращающейся жизни и одновременно — нити судьбы, которую прядут в ожидании. Художник выбирает самое тяжёлое из военных состояний: не бой, а паузу между письмами.
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>

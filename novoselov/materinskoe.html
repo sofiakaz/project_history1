@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александр Новосёлов – «Материнское благословение»</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.painting-caption-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 80px;
+}
+.painting-caption-row .painting-caption {
+    margin-bottom: 0;
+    opacity: .6;
+    font-size: 18px;
+    font-weight: 300;
+}
+</style>
+</head>
+<body class="painting-page">
+
+<header class="with-back">
+    <div class="header-left">
+        <a href="../novoselov.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+    <nav>
+        <a href="#">О ВЫСТАВКЕ</a>
+        <div class="artists-menu" id="artistsMenu">
+            <button class="artists-btn" id="artistsBtn">ХУДОЖНИКИ</button>
+            <div class="artists-popup">
+                <a href="../isaev.html">Исаев Г.</a>
+                <a href="../krivonos.html">Кривонос А.</a>
+                <a href="../novoselov.html">Новоселов А.</a>
+                <a href="../ovcharenko.html">Овчаренко И.</a>
+                <a href="../chzhu.html">Чжу К.</a>
+                <a href="../shashin.html">Шашин А.</a>
+                <a href="../yahihanov.html">Яхиханов Р.</a>
+                <a href="../yachniy.html">Ячный Е.</a>
+            </div>
+        </div>
+        <a href="#">3D ВЫСТАВКА</a>
+    </nav>
+</header>
+
+<div class="painting-container">
+
+    <div class="painting-number">[01]</div>
+
+    <div class="painting-frame">
+        <img src="../img/Материнское благословение.jpg" alt="Материнское благословение">
+    </div>
+
+    <div class="painting-caption-row">
+        <span class="painting-caption">«Материнское благословение», 2024</span>
+    </div>
+
+    <div class="painting-text">
+        <p>
+            В центре картины — мать, благословляющая ребёнка. В контексте творчества Новосёлова это может быть проводы сына на войну, напутствие перед трудной дорогой или символический образ Родины-матери. Замысел родился в рамках проекта «Уголь земли русской»: сначала художник работал мягким материалом в чёрно-белом, затем расширил палитру.
+        </p>
+        <p>
+            Интересно, что прототипом стала жена художника. У них шестеро детей. Жена родилась на Украине, в Чугуеве, её отец — лётчик. Она ходила в школу в Чугуеве, в школу Репина — и это, по словам Новосёлова, многое объясняет.
+        </p>
+        <p>
+            Монументальный размер придаёт камерной по сюжету сцене эпический масштаб. Художник акцентирует жест руки матери и психологическое состояние персонажей. Картина становится не просто бытовой сценой, а символом связи поколений и духовного завещания.
+        </p>
+    </div>
+
+</div>
+
+<script>
+const btn  = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+btn.addEventListener('click', () => menu.classList.toggle('open'));
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+</body>
+</html>
