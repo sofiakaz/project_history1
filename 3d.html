@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>О выставке</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.about-page{
+    padding-top: calc(var(--header-h) + 80px);
+    padding-bottom: 120px;
+}
+
+.about-container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-title{
+    font-size: 96px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+}
+
+.about-text{
+    font-size: 24px;
+    line-height: 1.9;
+    font-weight: 300;
+    color: rgba(255,255,255,.9);
+}
+
+.about-text p{
+    margin-bottom: 40px;
+}
+
+.about-text strong{
+    font-weight: 500;
+}
+
+/* ===== UNITY БЛОК ===== */
+.unity-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#unity-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#unity-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ===== ЗАСЛОНКА В СТИЛЕ САЙТА ===== */
+#start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease;
+    border-radius: 12px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#start-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 0, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0, 0, 120, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.overlay-content {
+    text-align: center;
+    z-index: 1;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#start-overlay h2 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Oswald', sans-serif;
+}
+
+#start-overlay .subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+#loading-bar-container {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: none;
+}
+
+#loading-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d32f2f, #ff5252);
+    transition: width 0.3s ease;
+}
+
+#loading-text {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: none;
+    font-family: 'Oswald', sans-serif;
+}
+
+#start-btn {
+    padding: 14px 40px;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4);
+    font-family: 'Oswald', sans-serif;
+}
+
+#start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(211, 47, 47, 0.6);
+}
+
+#start-btn:active {
+    transform: translateY(0);
+}
+
+#start-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Стили для ошибок */
+.error-message {
+    color: #ff5252;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+</style>
+
+</head>
+
+<body class="fade-in">
+
+<header>
+
+    <div class="header-left">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">Академия Художеств</div>
+    </div>
+
+    <nav>
+
+        <a href="about.html">О ВЫСТАВКЕ</a>
+
+        <div class="artists-menu" id="artistsMenu">
+
+            <button class="artists-btn" id="artistsBtn">
+                ХУДОЖНИКИ
+            </button>
+
+            <div class="artists-popup">
+                <a href="isaev.html">Исаев Г.</a>
+                <a href="krivonos.html">Кривонос А.</a>
+                <a href="novoselov.html">Новоселов А.</a>
+                <a href="ovcharenko.html">Овчаренко И.</a>
+                <a href="chzhu.html">Чжу К.</a>
+                <a href="shashin.html">Шашин А.</a>
+                <a href="yahihanov.html">Яхиханов Р.</a>
+                <a href="yachniy.html">Ячный Е.</a>
+            </div>
+
+        </div>
+
+        <a href="3d.html">3D ВЫСТАВКА</a>
+
+    </nav>
+
+</header>
+
+<section class="about-page">
+
+    <div class="about-container">
+
+        <h1 class="about-title">
+            3D ВЫСТАВКА
+        </h1>
+        
+        <div class="unity-wrapper">
+
+            <!-- КОНТЕЙНЕР UNITY -->
+            <div id="unity-container">
+                <canvas id="unity-canvas" tabindex="-1"></canvas>
+            </div>
+
+            <!-- ЗАСЛОНКА -->
+            <div id="start-overlay">
+                <div class="overlay-content">
+                    <h2>Виртуальная выставка</h2>
+                    <div class="subtitle">Академия Художеств имени Ильи Репина</div>
+                    
+                    <div id="loading-bar-container">
+                        <div id="loading-bar"></div>
+                    </div>
+                    <div id="loading-text">Загрузка... 0%</div>
+                    <div id="error-message" class="error-message"></div>
+                    
+                    <button id="start-btn" disabled>Загрузка...</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+const btn = document.getElementById('artistsBtn');
+const menu = document.getElementById('artistsMenu');
+
+btn.addEventListener('click', () => {
+    menu.classList.toggle('open');
+});
+
+document.addEventListener('click', e => {
+    if (!menu.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
+
+<!-- ===== СКРИПТ UNITY ===== -->
+<script>
+(function() {
+    console.log("Unity загрузчик запущен");
+    
+    var canvas = document.getElementById("unity-canvas");
+    var startBtn = document.getElementById("start-btn");
+    var overlay = document.getElementById("start-overlay");
+    var loadingBarContainer = document.getElementById("loading-bar-container");
+    var loadingBar = document.getElementById("loading-bar");
+    var loadingText = document.getElementById("loading-text");
+    var errorMessage = document.getElementById("error-message");
+
+    // Путь к папке Build
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/WebGL.loader.js";
+
+    console.log("Путь к загрузчику:", loaderUrl);
+
+    var config = {
+        dataUrl: buildUrl + "/WebGL.data.br",
+        frameworkUrl: buildUrl + "/WebGL.framework.js.br",
+        codeUrl: buildUrl + "/WebGL.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "AcademyOfArts",
+        productName: "VirtualExhibition",
+        productVersion: "1.0",
+    };
+
+    console.log("Конфигурация Unity:", config);
+
+    loadingBarContainer.style.display = "block";
+    loadingText.style.display = "block";
+
+    // Проверяем, существует ли файл
+    function checkFileExists(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('HEAD', url, false);
+        try {
+            xhr.send();
+            return xhr.status === 200;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    // Проверяем наличие файлов
+    console.log("Проверка файлов сборки...");
+    if (!checkFileExists(loaderUrl)) {
+        errorMessage.textContent = "Ошибка: файл WebGL.loader.js не найден в папке Build";
+        errorMessage.style.display = "block";
+        loadingText.textContent = "Ошибка: файлы сборки не найдены";
+        startBtn.textContent = "Ошибка загрузки";
+        console.error("Файл не найден:", loaderUrl);
+        return;
+    }
+
+    // Загружаем loader скрипт
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    
+    script.onload = function() {
+        console.log("WebGL.loader.js загружен");
+        
+        // Проверяем, что функция createUnityInstance существует
+        if (typeof createUnityInstance === 'undefined') {
+            errorMessage.textContent = "Ошибка: createUnityInstance не определена";
+            errorMessage.style.display = "block";
+            loadingText.textContent = "Ошибка загрузки Unity";
+            startBtn.textContent = "Ошибка загрузки";
+            console.error("createUnityInstance не определена после загрузки скрипта");
+            return;
+        }
+        
+        console.log("Запуск createUnityInstance...");
+        
+        createUnityInstance(canvas, config, function (progress) {
+            var percent = Math.round(progress * 100);
+            loadingBar.style.width = percent + "%";
+            loadingText.textContent = "Загрузка... " + percent + "%";
+            console.log("Прогресс загрузки:", percent + "%");
+        }).then(function (unityInstance) {
+            console.log("Unity загружен успешно!");
+            loadingText.textContent = "Готово!";
+            startBtn.textContent = "Войти в выставку";
+            startBtn.disabled = false;
+
+            window.unityInstance = unityInstance;
+
+            setTimeout(function() {
+                loadingBarContainer.style.display = "none";
+                loadingText.style.display = "none";
+            }, 1000);
+        }).catch(function (message) {
+            console.error("Ошибка загрузки Unity:", message);
+            errorMessage.textContent = "Ошибка: " + message;
+            errorMessage.style.display = "block";
+            loadingText.textContent = "Ошибка загрузки";
+            startBtn.textContent = "Ошибка загрузки";
+        });
+    };
+    
+    script.onerror = function() {
+        console.error("Не удалось загрузить WebGL.loader.js");
+        errorMessage.textContent = "Ошибка: не удалось загрузить Unity loader";
+        errorMessage.style.display = "block";
+        loadingText.textContent = "Ошибка загрузки";
+        startBtn.textContent = "Ошибка загрузки";
+    };
+    
+    document.body.appendChild(script);
+
+    startBtn.addEventListener("click", function () {
+        if (canvas.requestFullscreen) {
+            canvas.requestFullscreen();
+        } else if (canvas.webkitRequestFullscreen) {
+            canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) {
+            canvas.msRequestFullscreen();
+        }
+
+        overlay.classList.add("hidden");
+        
+        setTimeout(function () {
+            overlay.style.display = "none";
+        }, 800);
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.unityInstance) {
+            window.unityInstance.SetFullscreen(0);
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
