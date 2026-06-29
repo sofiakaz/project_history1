@@ -2,7 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ВАЖНО: Новые мета-теги из второго кода для безопасности и совместимости -->
+<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 <title>О выставке</title>
 
@@ -276,6 +279,7 @@
 </section>
 
 <script>
+// Скрипт для меню "ХУДОЖНИКИ"
 const btn = document.getElementById('artistsBtn');
 const menu = document.getElementById('artistsMenu');
 
@@ -290,7 +294,7 @@ document.addEventListener('click', e => {
 });
 </script>
 
-<!-- ===== СКРИПТ UNITY ===== -->
+<!-- ===== ОБНОВЛЁННЫЙ СКРИПТ UNITY (с учётом нового билда) ===== -->
 <script>
 (function() {
     console.log("Unity загрузчик запущен");
@@ -303,16 +307,17 @@ document.addEventListener('click', e => {
     var loadingText = document.getElementById("loading-text");
     var errorMessage = document.getElementById("error-message");
 
-    // Путь к папке Build
+    // ВАЖНО: Новый путь к загрузчику из второго кода
     var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/WebGL.loader.js";
+    var loaderUrl = buildUrl + "/3d_library1.loader.js";
 
     console.log("Путь к загрузчику:", loaderUrl);
 
+    // ВАЖНО: Обновлённая конфигурация из второго кода (расширения файлов исправлены)
     var config = {
-        dataUrl: buildUrl + "/WebGL.data.br",
-        frameworkUrl: buildUrl + "/WebGL.framework.js.br",
-        codeUrl: buildUrl + "/WebGL.wasm.br",
+        dataUrl: buildUrl + "/WebGL.data",
+        frameworkUrl: buildUrl + "/WebGL.framework.js",
+        codeUrl: buildUrl + "/WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "AcademyOfArts",
         productName: "VirtualExhibition",
@@ -324,35 +329,12 @@ document.addEventListener('click', e => {
     loadingBarContainer.style.display = "block";
     loadingText.style.display = "block";
 
-    // Проверяем, существует ли файл
-    function checkFileExists(url) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('HEAD', url, false);
-        try {
-            xhr.send();
-            return xhr.status === 200;
-        } catch(e) {
-            return false;
-        }
-    }
-
-    // Проверяем наличие файлов
-    console.log("Проверка файлов сборки...");
-    if (!checkFileExists(loaderUrl)) {
-        errorMessage.textContent = "Ошибка: файл WebGL.loader.js не найден в папке Build";
-        errorMessage.style.display = "block";
-        loadingText.textContent = "Ошибка: файлы сборки не найдены";
-        startBtn.textContent = "Ошибка загрузки";
-        console.error("Файл не найден:", loaderUrl);
-        return;
-    }
-
-    // Загружаем loader скрипт
+    // Загружаем новый loader скрипт
     var script = document.createElement("script");
     script.src = loaderUrl;
     
     script.onload = function() {
-        console.log("WebGL.loader.js загружен");
+        console.log("3d_library1.loader.js загружен");
         
         // Проверяем, что функция createUnityInstance существует
         if (typeof createUnityInstance === 'undefined') {
@@ -393,7 +375,7 @@ document.addEventListener('click', e => {
     };
     
     script.onerror = function() {
-        console.error("Не удалось загрузить WebGL.loader.js");
+        console.error("Не удалось загрузить 3d_library1.loader.js");
         errorMessage.textContent = "Ошибка: не удалось загрузить Unity loader";
         errorMessage.style.display = "block";
         loadingText.textContent = "Ошибка загрузки";
